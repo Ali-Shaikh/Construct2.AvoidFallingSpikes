@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="isAlive" sid="3376197214682133" static="0" type="number">1</variable>
         <variable constant="0" name="score" sid="85775172020261" static="0" type="number">0</variable>
         <variable constant="0" name="spikeSpawnTimeMax" sid="2287241454936501" static="0" type="number">0.9</variable>
         <variable constant="0" name="spikeSpawnTimeMin" sid="1451123692924994" static="0" type="number">0.2</variable>
@@ -26,19 +27,37 @@
                 <condition id="-1" name="Every tick" sid="2831550396063577" type="System" />
             </conditions>
             <actions>
-                <action id="-23" name="Move at angle" sid="2277839162054509" type="Spike">
-                    <param id="0" name="Angle">90</param>
-                    <param id="1" name="Distance">spikeSpeed</param>
-                </action>
                 <action id="0" name="Set text" sid="3779552128180376" type="txtScore">
                     <param id="0" name="Text">&quot;Score: &quot;&amp;score</param>
                 </action>
                 <action id="-24" name="Move to top" sid="2911080064021827" type="txtScore" />
             </actions>
+            <sub-events>
+                <event-block sid="5952487529350669">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5019653258794618" type="System">
+                            <param id="0" name="Variable">isAlive</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-23" name="Move at angle" sid="2277839162054509" type="Spike">
+                            <param id="0" name="Angle">90</param>
+                            <param id="1" name="Distance">spikeSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="346559178581879">
             <conditions>
                 <condition id="2" name="Is in touch" sid="4953752942902575" type="Touch" />
+                <condition id="-14" name="Compare variable" sid="9980084426922855" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-1" name="Set X" sid="6209429884408684" type="player">
@@ -117,11 +136,51 @@
                 <condition id="-6" name="Every X seconds" sid="8731248248131622" type="System">
                     <param id="0" name="Interval (seconds)">0.8</param>
                 </condition>
+                <condition id="-14" name="Compare variable" sid="6213563580472535" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
             </conditions>
             <actions>
                 <action id="-10" name="Add to" sid="4073956649727659" type="System">
                     <param id="0" name="Variable">score</param>
                     <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4131920257163743">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="1441740939235683" type="Spike">
+                    <param id="0" name="Object">player</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8697742923293897" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7302385666694003">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8557283390417269" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Wait" sid="9798464778753428" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="9527089394884483" type="Spike" />
+                <action id="-9" name="Destroy" sid="6722442758049652" type="player" />
+                <action id="-16" name="Set opacity" sid="4343636388745233" type="GameOverHUD">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="868163540481094" type="txtMessage">
+                    <param id="0" name="Opacity">100</param>
                 </action>
             </actions>
         </event-block>
