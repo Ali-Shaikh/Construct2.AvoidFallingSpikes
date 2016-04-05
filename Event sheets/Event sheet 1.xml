@@ -13,6 +13,12 @@
             </conditions>
             <actions>
                 <action id="2" name="Stop" sid="1438690390955577" type="background" />
+                <action id="-16" name="Set opacity" sid="8985864903018437" type="GameOverHUD">
+                    <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="9122496963578866" type="txtMessage">
+                    <param id="0" name="Opacity">0</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="5107070665629181">
@@ -118,14 +124,6 @@
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
-        </event-block>
-        <event-block sid="5956994066074666">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="5115790496498526" type="player">
-                    <param id="0" name="Object">Spike</param>
-                </condition>
-            </conditions>
-            <actions />
         </event-block>
     </events>
 </c2eventsheet>
