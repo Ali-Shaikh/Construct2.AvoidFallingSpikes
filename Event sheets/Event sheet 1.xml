@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="spikeSpeed" sid="3759602516008769" static="0" type="number">9</variable>
         <event-block sid="4651638621581019">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="5589058640075193" type="System" />
@@ -50,6 +51,17 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="5107070665629181">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2831550396063577" type="System" />
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="2277839162054509" type="Spike">
+                    <param id="0" name="Angle">90</param>
+                    <param id="1" name="Distance">spikeSpeed</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
