@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Event sheet 1</name>
+    <name>gameSheet</name>
     <events>
         <variable constant="0" name="isAlive" sid="3376197214682133" static="0" type="number">1</variable>
         <variable constant="0" name="score" sid="85775172020261" static="0" type="number">0</variable>
@@ -19,6 +19,14 @@
                 </action>
                 <action id="-16" name="Set opacity" sid="9122496963578866" type="txtMessage">
                     <param id="0" name="Opacity">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1469295372341803" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2001005796999936" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">0</param>
                 </action>
             </actions>
         </event-block>
@@ -181,6 +189,38 @@
                 </action>
                 <action id="-16" name="Set opacity" sid="868163540481094" type="txtMessage">
                     <param id="0" name="Opacity">100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6838175474210252">
+            <conditions>
+                <condition id="3" name="On touched object" sid="442456589727804" type="Touch">
+                    <param id="0" name="Object">btnPlayAgain</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="58165640874946" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="3161801374282136" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="452570864682445">
+            <conditions>
+                <condition id="3" name="On touched object" sid="8893237474191119" type="Touch">
+                    <param id="0" name="Object">btnHome</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9195757375640947" type="System">
+                    <param id="0" name="Variable">isAlive</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="3679166939931611" type="System">
+                    <param id="0" name="Layout">homeLayout</param>
                 </action>
             </actions>
         </event-block>
