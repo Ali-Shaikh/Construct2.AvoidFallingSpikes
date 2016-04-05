@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="score" sid="85775172020261" static="0" type="number">0</variable>
         <variable constant="0" name="spikeSpawnTimeMax" sid="2287241454936501" static="0" type="number">0.9</variable>
         <variable constant="0" name="spikeSpawnTimeMin" sid="1451123692924994" static="0" type="number">0.2</variable>
         <variable constant="0" name="spikeSpeed" sid="3759602516008769" static="0" type="number">14</variable>
@@ -12,6 +13,20 @@
             </conditions>
             <actions>
                 <action id="2" name="Stop" sid="1438690390955577" type="background" />
+            </actions>
+        </event-block>
+        <event-block sid="5107070665629181">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2831550396063577" type="System" />
+            </conditions>
+            <actions>
+                <action id="-23" name="Move at angle" sid="2277839162054509" type="Spike">
+                    <param id="0" name="Angle">90</param>
+                    <param id="1" name="Distance">spikeSpeed</param>
+                </action>
+                <action id="0" name="Set text" sid="3779552128180376" type="txtScore">
+                    <param id="0" name="Text">&quot;Score: &quot;&amp;score</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="346559178581879">
@@ -54,17 +69,6 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="5107070665629181">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="2831550396063577" type="System" />
-            </conditions>
-            <actions>
-                <action id="-23" name="Move at angle" sid="2277839162054509" type="Spike">
-                    <param id="0" name="Angle">90</param>
-                    <param id="1" name="Distance">spikeSpeed</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="329789423703707">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="6450086943856673" type="System">
@@ -86,6 +90,28 @@
                     <param id="1" name="Layer">&quot;playerLayer&quot;</param>
                     <param id="2" name="X">random(20,470)</param>
                     <param id="3" name="Y">-70</param>
+                </action>
+                <action id="-16" name="Wait" sid="9181237363584526" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-3" name="Create object" sid="323672772455226" type="System">
+                    <param id="0" name="Object to create">Spike</param>
+                    <param id="1" name="Layer">&quot;playerLayer&quot;</param>
+                    <param id="2" name="X">random(20,470)</param>
+                    <param id="3" name="Y">-70</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4696439940873445">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8731248248131622" type="System">
+                    <param id="0" name="Interval (seconds)">0.8</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="4073956649727659" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">1</param>
                 </action>
             </actions>
         </event-block>

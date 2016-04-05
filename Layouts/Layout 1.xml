@@ -155,6 +155,33 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="txtScore" uid="6">
+                    <properties>
+                        <text>Score: 0</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Impact,-53,400,0</font>
+                        <color>250,250,250</color>
+                        <horizontal-alignment>Center</horizontal-alignment>
+                        <vertical-alignment>Center</vertical-alignment>
+                        <hotspot>Center</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>240</x>
+                        <y>805</y>
+                        <z>0</z>
+                        <width>378</width>
+                        <height>97</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
